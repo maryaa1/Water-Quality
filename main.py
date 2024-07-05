@@ -1,10 +1,10 @@
-import pickle
 import streamlit as st
 import numpy as np
+from tensorflow.keras.models import load_model
 
 # Memuat model yang disimpan
-filename = 'water_quality_model.sav'
-water_quality_model = pickle.load(open('water_quality_model'))
+filename = 'model_water_quality_prediction.h5'
+model_water_quality_prediction = load_model(filename)
 
 # Judul web
 st.title('Prediksi Kualitas Air')
@@ -54,15 +54,14 @@ Turbidity = float(Turbidity.replace(',', '')) if Turbidity else 0.0
 input_data = np.array([[ph, Solids, Sulfate, Organic_carbon, Turbidity, Hardness, Chloramines, Conductivity, Trihalomethanes]])
 
 # Prediksi
-water_quality = ''
+water_prediction = ''
 
 # Tombol prediksi
 if st.button('Test Prediksi Air'):
-    water_quality = water_quality_model.predict(input_data)
-
-    if water_quality[0] == 1:
-        water_quality = 'Air dapat Diminum'
+    water_prediction = model_water_quality_prediction.predict(input_data)
+    if water_prediction[0] == 1:
+        water_prediction = 'Air dapat Diminum'
     else:
-        water_quality = 'Air Tidak dapat Diminum'
-    
-    st.success(water_quality)
+        water_prediction = 'Air Tidak dapat Diminum'
+        
+    st.success(water_prediction)
