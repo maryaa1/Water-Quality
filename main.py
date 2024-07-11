@@ -15,6 +15,20 @@ with col1:
     ph = st.text_input('Masukan nilai pH')
 with col2:
     Hardness = st.text_input('Masukan nilai Hardness')
+with col1:
+    Solids = st.text_input('Masukan nilai Solids')
+with col2:
+    Chloramines = st.text_input('Masukan nilai Chloramines')
+with col1:
+    Sulfate = st.text_input('Masukan nilai Sulfate')
+with col2:
+    Conductivity = st.text_input('Masukan nilai Conductivity')
+with col1:
+    Organic_carbon = st.text_input('Masukan nilai Organic carbon')
+with col2:
+    Trihalomethanes = st.text_input('Masukan nilai Trihalomethanes')
+with col1:
+    Turbidity = st.text_input('Masukan nilai Turbidity')
 # Tambahkan input lainnya sesuai kebutuhan
 
 # Tombol prediksi dan hasil
