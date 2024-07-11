@@ -39,17 +39,18 @@ input_values = [float(x.replace(',', '')) if x else 0.0 for x in input_values]
 # Buat numpy array dari nilai-nilai tersebut
 input_data = np.array([input_values])
 
-# Tombol prediksi dan hasil
+# Prediksi
+water_prediction = ''
+
 # Tombol prediksi
 if st.button('Test Prediksi Air'):
-    water_quality = water_quality_model.predict(input_data)
-
-    if water_quality[0] < 0.5:
-        water_quality = 'Air dapat Diminum'
+    water_prediction = model_water_quality_prediction.predict(input_data)
+    if water_prediction[0] == 1:
+        water_prediction = 'Air dapat Diminum'
     else:
-        water_quality = 'Air Tidak dapat Diminum'
-    
-    st.success(water_quality)
-    
+        water_prediction = 'Air Tidak dapat Diminum'
+        
+    st.success(water_prediction)
+
     
 
