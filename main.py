@@ -59,7 +59,7 @@ water_prediction = ''
 # Tombol prediksi
 if st.button('Test Prediksi Air'):
     # Melakukan prediksi
-water_prediction = model_water_quality_prediction.predict(input_data)
+    water_prediction = model_water_quality_prediction.predict(input_data)
     
     # Menginterpretasikan hasil prediksi
 if water_prediction[0] > 0.5:
