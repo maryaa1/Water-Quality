@@ -43,16 +43,19 @@ input_data = np.array([input_values])
 water_prediction = ''
 
 # Tombol prediksi
-if st.button('Test Prediksi Air'):
-    prediction = model_water_quality_prediction.predict(input_data)
-    prediction_probability = prediction[0]
-    print(f"Raw prediction: {prediction}, Probability: {prediction_probability}")
+# Prediksi
+water_prediction = ''
 
-    if prediction_probability [0]==1:
+# Tombol prediksi
+if st.button('Test Prediksi Air'):
+    water_prediction = model_water_quality_prediction.predict(input_data)
+    if water_prediction[0] == 1:
         water_prediction = 'Air dapat Diminum'
         st.success(water_prediction)
     else:
         water_prediction = 'Air Tidak dapat Diminum'
         st.error(water_prediction)
+        
+   
 
 
