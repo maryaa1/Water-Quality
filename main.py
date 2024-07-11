@@ -40,6 +40,7 @@ input_values = [float(x.replace(',', '')) if x else 0.0 for x in input_values]
 input_data = np.array([input_values])
 
 # Tombol prediksi dan hasil
+# Tombol prediksi dan hasil
 if st.button('Test Prediksi Air'):
     # Debugging output
     print("Input data:", input_data)  # Menampilkan data input
