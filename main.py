@@ -1,11 +1,11 @@
 import streamlit as st
-import pickle
+import numpy as np
+from tensorflow.keras.models import load_model
 
 
-filename = 'model_water_quality_prediction.sav'
-with open(filename, 'rb') as file:
-    model_water_quality_prediction = pickle.load(file)
-
+# Memuat model yang disimpan
+filename = 'model_water_quality_prediction.h5'
+model_water_quality_prediction = load_model(filename)
 
 # Judul web
 st.title('Prediksi Kualitas Air')
@@ -46,15 +46,18 @@ if st.button('Test Prediksi Air'):
     prediction = model_water_quality_prediction.predict(input_data)
     print("Raw prediction output:", prediction)  # Menampilkan output prediksi mentah
 
-    # Menginterpretasikan prediksi
-    if prediction[0] > 0.5:  # Mengasumsikan model output adalah probabilitas
-        result_text = 'Air dapat Diminum'
-        color = 'green'
-        print("Predicted label: Air dapat Diminum")  # Debugging label prediksi
-    else:
-        result_text = 'Air Tidak dapat Diminum'
-        color = 'red'
-        print("Predicted label: Air Tidak dapat Diminum")  # Debugging label prediksi
+   # Menginterpretasikan prediksi
+if prediction[0] > 0.5:  # Mengasumsikan model output adalah probabilitas
+    result_text = 'Air dapat Diminum'
+    color = 'green'
+    print("Predicted label: Air dapat Diminum")  # Debugging label prediksi
+    st.success("Air dapat Diminum")
+else:
+    result_text = 'Air Tidak dapat Diminum'
+    color = 'red'
+    print("Predicted label: Air Tidak dapat Diminum")  # Debugging label prediksi
+    st.success("Air Tidak dapat Diminum")
+
     
     # Menampilkan hasil dengan warna yang sesuai
     st.markdown(f'<h2 style="color:{color};">{result_text}</h2>', unsafe_allow_html=True)
