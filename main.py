@@ -50,12 +50,10 @@ if st.button('Test Prediksi Air'):
     if prediction[0] > 0.5:  # Mengasumsikan model output adalah probabilitas
         result_text = 'Air dapat Diminum'
         color = 'green'
-        print("Predicted label: Air dapat Diminum")  # Debugging label prediksi
         st.success("Air dapat Diminum")
     else:
         result_text = 'Air Tidak dapat Diminum'
         color = 'red'
-        print("Predicted label: Air Tidak dapat Diminum")  # Debugging label prediksi
         st.error("Air Tidak dapat Diminum")
     
     # Menampilkan hasil dengan warna yang sesuai
