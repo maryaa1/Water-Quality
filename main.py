@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 from tensorflow.keras.models import load_model
-from sklearn.preprocessing import MinMaxScaler
+
 
 # Memuat model yang disimpan
 filename = 'model_water_quality_prediction.h5'
@@ -38,12 +38,6 @@ input_values = [float(x.replace(',', '')) if x else 0.0 for x in input_values]
 
 # Buat numpy array dari nilai-nilai tersebut
 input_data = np.array([input_values])
-
-# Normalize the input data
-input_normalized = scaler.transform(input_data)
-
-# Make prediction
-prediction = model.predict(input_normalized)
 
 # Tombol prediksi dan hasil
 if st.button('Test Prediksi Air'):
