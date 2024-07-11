@@ -46,7 +46,7 @@ if st.button('Test Prediksi Air'):
     print("Raw prediction output:", prediction)  # Menampilkan output prediksi mentah
 
     # Menginterpretasikan prediksi
-    if prediction[0] > 0.5:  # Mengasumsikan model output adalah probabilitas
+    if prediction[0] > 1:  # Mengasumsikan model output adalah probabilitas
         result_text = 'Air dapat Diminum'
         color = 'green'
         print("Predicted label: Air dapat Diminum")  # Debugging label prediksi
