@@ -40,20 +40,16 @@ input_values = [float(x.replace(',', '')) if x else 0.0 for x in input_values]
 input_data = np.array([input_values])
 
 # Tombol prediksi dan hasil
+# Tombol prediksi
 if st.button('Test Prediksi Air'):
-    # Debugging output
-    print("Input data:", input_data)  # Menampilkan data input
-    prediction = model_water_quality_prediction.predict(input_data)
-    print("Raw prediction output:", prediction)  # Menampilkan output prediksi mentah
+    water_quality = water_quality_model.predict(input_data)
 
-    # Menginterpretasikan prediksi
-if prediction[0] > 0.5:  # Mengasumsikan model output adalah probabilitas
-    result_text = 'Air dapat Diminum'
-    color = 'green'
-    st.success("Air dapat Diminum")
-else:
-    result_text = 'Air Tidak dapat Diminum'
-    color = 'red'
-    st.error("Air Tidak dapat Diminum")
+    if water_quality[0] < 0.5:
+        water_quality = 'Air dapat Diminum'
+    else:
+        water_quality = 'Air Tidak dapat Diminum'
+    
+    st.success(water_quality)
+    
     
 
