@@ -38,6 +38,12 @@ input_values = [float(x.replace(',', '')) if x else 0.0 for x in input_values]
 # Buat numpy array dari nilai-nilai tersebut
 input_data = np.array([input_values])
 
+# Normalize the input data
+input_normalized = scaler.transform(input_data)
+
+# Make prediction
+prediction = model.predict(input_normalized)
+
 # Tombol prediksi dan hasil
 if st.button('Test Prediksi Air'):
     # Debugging output
