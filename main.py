@@ -60,9 +60,9 @@ water_prediction = ''
 prediction_probability = prediction[0]
     
     # Menginterpretasikan hasil prediksi
-    if prediction_probability >= 0.5:
-        water_prediction = 'Air dapat Diminum'
-        st.success(water_prediction)  # Menampilkan hasil dengan pesan sukses
-    else:
-        water_prediction = 'Air Tidak dapat Diminum'
-        st.error(water_prediction)
+if prediction_probability >= 0.5:
+    water_prediction = 'Air dapat Diminum'
+    st.success(water_prediction)  # Menampilkan hasil dengan pesan sukses
+else:
+    water_prediction = 'Air Tidak dapat Diminum'
+    st.error(water_prediction)
