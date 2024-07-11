@@ -52,6 +52,7 @@ data[data['Potability']==1][['ph','Sulfate','Trihalomethanes']].median()
 
 data['ph'].fillna(value=data['ph'].median(),inplace=True)
 data['Trihalomethanes'].fillna(value=data['Trihalomethanes'].median(),inplace=True)
+data['Sulfate'].fillna(value=data['Sulfate'].median(), inplace=True
 data = data.dropna()
 
 """-----------------------------------------
