@@ -39,9 +39,11 @@ input_values = [float(x.replace(',', '')) if x else 0.0 for x in input_values]
 # Buat numpy array dari nilai-nilai tersebut
 input_data = np.array([input_values])
 
+
 # Tombol prediksi dan hasil
-# Tombol prediksi dan hasil
-if st.button('Test Prediksi Air'):
+
+
+    if st.button('Test Prediksi Air'):
     # Debugging output
     print("Input data:", input_data)  # Menampilkan data input
     prediction = model_water_quality_prediction.predict(input_data)
@@ -58,7 +60,6 @@ else:
     color = 'red'
     print("Predicted label: Air Tidak dapat Diminum")  # Debugging label prediksi
     st.success("Air Tidak dapat Diminum")
-
     
     # Menampilkan hasil dengan warna yang sesuai
     st.markdown(f'<h2 style="color:{color};">{result_text}</h2>', unsafe_allow_html=True)
