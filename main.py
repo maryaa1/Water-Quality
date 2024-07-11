@@ -48,7 +48,7 @@ if st.button('Test Prediksi Air'):
     prediction_probability = prediction[0]
     print(f"Raw prediction: {prediction}, Probability: {prediction_probability}")
 
-    if prediction_probability >= 0.5:
+    if prediction_probability [0]==1:
         water_prediction = 'Air dapat Diminum'
         st.success(water_prediction)
     else:
