@@ -47,14 +47,14 @@ if st.button('Test Prediksi Air'):
     # Melakukan prediksi
     prediction = model_water_quality_prediction.predict(input_data)
     
-    # Mengkonversi output ke probabilitas
-    prediction_probability = 1 / (1 + np.exp(-prediction[0]))
+    # Jika model sudah mengeluarkan probabilitas (mis. dengan aktivasi sigmoid di layer output)
+    prediction_probability = prediction[0]
     
     # Menginterpretasikan hasil prediksi
-    if prediction_probability < 0.5:
+    if prediction_probability >= 0.5:
         water_prediction = 'Air dapat Diminum'
         st.success(water_prediction)  # Menampilkan hasil dengan pesan sukses
     else:
         water_prediction = 'Air Tidak dapat Diminum'
-        st.error(water_prediction)
+        st.error(water_prediction)  # Menampilkan hasil dengan pesan error
 
