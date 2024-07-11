@@ -41,9 +41,7 @@ input_data = np.array([input_values])
 
 
 # Tombol prediksi dan hasil
-
-
-    if st.button('Test Prediksi Air'):
+if st.button('Test Prediksi Air'):
     # Debugging output
     print("Input data:", input_data)  # Menampilkan data input
     prediction = model_water_quality_prediction.predict(input_data)
