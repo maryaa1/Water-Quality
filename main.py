@@ -2,8 +2,9 @@ import streamlit as st
 import pickle
 
 
-# Memuat model yang disimpan
-model_water_quality_prediction = pickle.load(open('model_water_quality_prediction.sav', 'rb'))
+filename = 'model_water_quality_prediction.sav'
+with open(filename, 'rb') as file:
+    model_water_quality_prediction = pickle.load(file)
 
 
 # Judul web
