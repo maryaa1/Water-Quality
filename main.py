@@ -42,7 +42,7 @@ if st.button('Test Prediksi Air'):
     print("Input data:", input_data)  # Menampilkan data input
     prediction = model_water_quality_prediction.predict(input_data)
     print("Raw prediction output:", prediction)  # Menampilkan output prediksi mentah
-
+    
     # Menginterpretasikan prediksi
     if prediction[0] > 0.5:  # Mengasumsikan model output adalah probabilitas
         result_text = 'Air dapat Diminum'
