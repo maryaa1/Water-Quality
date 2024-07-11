@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 from tensorflow.keras.models import load_model
+from sklearn.preprocessing import MinMaxScaler
 
 # Memuat model yang disimpan
 filename = 'model_water_quality_prediction.h5'
