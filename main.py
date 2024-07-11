@@ -47,7 +47,7 @@ if st.button('Test Prediksi Air'):
     print("Raw prediction output:", prediction)  # Menampilkan output prediksi mentah
 
     # Menginterpretasikan prediksi
-if prediction[0] > 1:  # Mengasumsikan model output adalah probabilitas
+if prediction[0] > 0.5:  # Mengasumsikan model output adalah probabilitas
     result_text = 'Air dapat Diminum'
     color = 'green'
     st.success("Air dapat Diminum")
@@ -56,5 +56,4 @@ else:
     color = 'red'
     st.error("Air Tidak dapat Diminum")
     
-    # Menampilkan hasil dengan warna yang sesuai
-    st.markdown(f'<h2 style="color:{color};">{result_text}</h2>', unsafe_allow_html=True)
+
